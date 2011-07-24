@@ -3,7 +3,7 @@
 By [Christopher Patuzzo](http://chris.patuzzo.co.uk/)
 
 
-*** Camera Controls
+### Camera Controls
 
 Up: Accelerate
 Down: Decelerate
@@ -13,7 +13,7 @@ Page Up: Increase elevation
 Page down: Decrease elevation
 0: Stop moving
 
-*** Other Controls
+### Other Controls
 
 Space: Pause animation - you may still move the camera.
 H: Display help
@@ -23,7 +23,7 @@ Y: Set position 3
 R: Reset
 Q: Quit
 
-*** Files
+### Files
 
 gl.cpp - The main C++ file.
 screenshot.jpg - The screenshot of position 1.
@@ -36,7 +36,7 @@ include/cripeelv.jpg, Cripfus.jpg, criperud.jpg, criptai.jpg, cripewng.jpg - The
 include/cloud.jpg - The 'cloud' texture image.
 include/glm3-0.1.3/ - It was requested by jnc that I include this with my program.
 
-*** Build Instructions
+### Build Instructions
 
 The program uses the glcc compilation program, as well as glm3-0.1.3, available: http://devernay.free.fr/hacks/glm/
 glcc is available on all linux ECS machines and it was specified that we may use glm for the coursework.
@@ -47,11 +47,9 @@ To compile gl.cpp, use glcc with the additional dependencies, i.e.
 
 To run, use ./gl - or whatever you named the executable.
 
---------------------
-Note: The jpeg library is the exact same dependency that SDL_image requires. I am not using any additional libraries to those specified in the coursework description. The program uses the following jpeg loading process: [image.jpg -> -ljpeg -> glm3-0.1.3] instead of: [image.jpg -> -ljpeg -> SDL_image -> glm3-0.1.3] As you can see, the SDL_image library is obselete when using glm.
---------------------
+*Note: The jpeg library is the exact same dependency that SDL_image requires. I am not using any additional libraries to those specified in the coursework description. The program uses the following jpeg loading process: [image.jpg -> -ljpeg -> glm3-0.1.3] instead of: [image.jpg -> -ljpeg -> SDL_image -> glm3-0.1.3] As you can see, the SDL_image library is obselete when using glm.*
 
-*** How does it work?
+### How does it work?
 
 I have used something known as a skybox for my program. This places the camera at the centre of a cube. All faces of the cube have image textures. This allows the camera to browse the static landscape seamlessly.
 
@@ -66,7 +64,7 @@ I wanted the motion to look gradual and fluid. To achieve this, I based a lot of
 I wrapped up all of the motion into an 'event' kind of structure which (like everything else) is clearly commented in the code. The animation is designed such that leaving the camera in its default orientation and momentum should give the best viewing. Most parameters are configurable in the #define's at the top of the file. This can assist in running the animation on very old PCs.
 
 
-*** Inspiration Sources
+### Inspiration Sources
 
 To create the skybox, I followed the guide that can be found here: http://sidvind.com/wiki/Skybox_tutorial
 The textures that are used for the skybox can be found here: http://www.hazelwhorley.com/textures.html
