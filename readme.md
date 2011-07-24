@@ -2,7 +2,7 @@
 
 By [Christopher Patuzzo](http://chris.patuzzo.co.uk/)
 
--> ![Airplane and Eagle](https://github.com/cpatuzzo/Graphical-Animation/blob/master/screenshot.jpg) <-
+![Screenshot](https://github.com/cpatuzzo/Graphical-Animation/blob/master/screenshot.jpg?raw=true)
 
 ### Camera Controls
 
