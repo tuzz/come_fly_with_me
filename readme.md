@@ -2,6 +2,7 @@
 
 By [Christopher Patuzzo](http://chris.patuzzo.co.uk/)
 
+-> ![Airplane and Eagle](https://github.com/cpatuzzo/Graphical-Animation/blob/master/screenshot.jpg) <-
 
 ### Camera Controls
 
@@ -43,7 +44,7 @@ glcc is available on all linux ECS machines and it was specified that we may use
 To install glm3-0.1.3, cd to the directory, then run ./configure, followed by sudo make install.  
 
 To compile gl.cpp, use glcc with the additional dependencies, i.e  
-	glcc -o gl gl.cpp -lglm -ljpeg  
+	  glcc -o gl gl.cpp -lglm -ljpeg  
 
 To run, use ./gl - or whatever you named the executable.  
 
