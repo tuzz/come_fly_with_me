@@ -1,7 +1,9 @@
 ## An OpenGL animation created in C++ based on the theme of flight
 By [Christopher Patuzzo](http://chris.patuzzo.co.uk/)
 
-<center>![Screenshot](https://github.com/cpatuzzo/Graphical-Animation/blob/master/screenshot.jpg?raw=true)</center>
+
+![Screenshot](https://github.com/cpatuzzo/Graphical-Animation/blob/master/screenshot.jpg?raw=true)
+
 
 ### Camera Controls
 
