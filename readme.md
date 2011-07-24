@@ -1,40 +1,40 @@
-# An OpenGL animation created in C++ based on the theme of flight
+## An OpenGL animation created in C++ based on the theme of flight
 
 By [Christopher Patuzzo](http://chris.patuzzo.co.uk/)
 
 
 ### Camera Controls
 
-> Up: Accelerate
-> Down: Decelerate
-> Left: Turn left
-> Right: Turn right
-> Page Up: Increase elevation
-> Page down: Decrease elevation
-> 0: Stop moving
+Up: Accelerate  
+Down: Decelerate  
+Left: Turn left  
+Right: Turn right  
+Page Up: Increase elevation  
+Page down: Decrease elevation  
+0: Stop moving  
 
 ### Other Controls
 
-> Space: Pause animation - you may still move the camera.
-> H: Display help
-> P: Set position 1
-> U: Set position 2
-> Y: Set position 3
-> R: Reset
-> Q: Quit
+Space: Pause animation - you may still move the camera.  
+H: Display help  
+P: Set position 1  
+U: Set position 2  
+Y: Set position 3  
+R: Reset  
+Q: Quit  
 
 ### Files
 
-> gl.cpp - The main C++ file.
-> screenshot.jpg - The screenshot of position 1.
-> airplane.obj - A waveform object file of an airplane.
-> airplane.mtl - The material file for airplane.obj.
-> eagle.obj - A waveform object file of an eagle.
-> eagle.mtl - The material file for eagle.obj.
-> include/north.jpg, east.jpg, south.jpg, west.jpg, bottom.jpg, top.jpg - The texture images for the skybox.
-> include/cripeelv.jpg, Cripfus.jpg, criperud.jpg, criptai.jpg, cripewng.jpg - The texture images for the airplane.
-> include/cloud.jpg - The 'cloud' texture image.
-> include/glm3-0.1.3/ - It was requested by jnc that I include this with my program.
+gl.cpp - The main C++ file.  
+screenshot.jpg - The screenshot of position 1.  
+airplane.obj - A waveform object file of an airplane.  
+airplane.mtl - The material file for airplane.obj.  
+eagle.obj - A waveform object file of an eagle.  
+eagle.mtl - The material file for eagle.obj.  
+include/north.jpg, east.jpg, south.jpg, west.jpg, bottom.jpg, top.jpg - The texture images for the skybox.  
+include/cripeelv.jpg, Cripfus.jpg, criperud.jpg, criptai.jpg, cripewng.jpg - The texture images for the airplane.  
+include/cloud.jpg - The 'cloud' texture image.  
+include/glm3-0.1.3/ - It was requested by jnc that I include this with my program.  
 
 ### Build Instructions
 
