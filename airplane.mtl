@@ -1,0 +1,225 @@
+# 
+# Wavefront material file
+# Converted by the DEEP Exploration  2.1.10.1214
+# Right Hemisphere, LTD
+# http://www.righthemisphere.com/
+# 
+
+newmtl fuselL
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 11.3137
+map_Kd include/Cripefus.jpg
+
+newmtl VMtl02
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.14355
+
+newmtl VMtl03
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+d 0.5
+illum 2
+Ns 3.24901
+
+newmtl VMtl04
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.46229
+
+newmtl VMtl05
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.46229
+
+newmtl VMtl06
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.14355
+map_Kd include/cripeelv.jpg
+
+newmtl VMtl07
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.14355
+map_Kd include/criperud.jpg
+
+newmtl VMtl08
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.14355
+
+newmtl VMtl09
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.14355
+map_Kd include/Cripefus.jpg
+
+newmtl VMtl10
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.14355
+map_Kd include/cripewng.jpg
+
+newmtl VMtl11
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.63902
+
+newmtl VMtl12
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.63902
+
+newmtl VMtl13
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.14355
+map_Kd include/cripetai.jpg
+
+newmtl VMtl14
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.14355
+map_Kd include/cripetai.jpg
+
+newmtl VMtl15
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.14355
+
+newmtl VMtl16
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.46229
+
+newmtl VMtl17
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.46229
+
+newmtl VMtl18
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.46229
+
+newmtl VMtl19
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.46229
+
+newmtl VMtl20
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.2974
+
+newmtl VMtl21
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.2974
+
+newmtl VMtl22
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.2974
+
+newmtl VMtl23
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.2974
+
+newmtl VMtl24
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+d 0.4
+illum 2
+Ns 3.24901
+
+newmtl VMtl25
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.14355
+
+newmtl VMtl26
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.14355
+
+newmtl VMtl27
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 3.24901
+
+newmtl VMtl28
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.14355
+
+newmtl VMtl29
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.14355
+
+newmtl VMtl30
+Ka 0 0 0
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 2.14355

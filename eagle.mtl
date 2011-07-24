@@ -1,0 +1,112 @@
+# 
+# Eagle material file
+# Created by Christopher Patuzzo
+# 
+
+newmtl default
+Ka 0.25 0.25 0.25
+Kd 0.25 0.25 0.25
+Ks 0.25 0.25 0.25
+illum 2
+
+newmtl claws
+Ka 0 0 0
+Kd 0 0 0
+Ks 0 0 0
+illum 2
+
+newmtl eyes
+Ka 0 0 0
+Kd 0 0 0
+Ks 0 0 0
+illum 2
+
+newmtl feet
+Ka 1 0.9 0
+Kd 1 0.9 0
+Ks 1 0.9 0
+illum 2
+
+newmtl head
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+
+newmtl beak
+Ka 1 0.9 0
+Kd 1 0.9 0
+Ks 1 0.9 0
+illum 2
+
+newmtl mouth
+Ka 1 0.5 0.5
+Kd 1 0.5 0.5
+Ks 1 0.5 0.5
+illum 2
+
+newmtl nose
+Ka 1 0.75 0.75
+Kd 1 0.75 0.75
+Ks 1 0.75 0.75
+illum 2
+
+newmtl tailfeath
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+
+newmtl tailspines
+Ka 0.5 0.5 0.5
+Kd 0.5 0.5 0.5
+Ks 0.5 0.5 0.5
+illum 2
+
+newmtl tongue
+Ka 1 0.75 0.75
+Kd 1 0.75 0.75
+Ks 1 0.75 0.75
+illum 2
+
+newmtl innerwing
+Ka 0.5 0.5 1
+Kd 0.5 0.5 1
+Ks 0.5 0.5 1
+illum 2
+
+newmtl outerwing
+Ka 1 0.5 0.5
+Kd 1 0.5 0.5
+Ks 1 0.5 0.5
+illum 2
+
+newmtl frontwing
+Ka 0.25 0.25 0.25
+Kd 0.25 0.25 0.25
+Ks 0.25 0.25 0.25
+illum 2
+
+newmtl innerspines
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+
+newmtl outerspines
+Ka 1 1 1
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+
+newmtl body
+Ka 0.25 0.25 0.25
+Kd 0.25 0.25 0.25
+Ks 0.25 0.25 0.25
+illum 2
+
+newmtl legs
+Ka 0.25 0.25 0.25
+Kd 0.25 0.25 0.25
+Ks 0.25 0.25 0.25
+illum 2
