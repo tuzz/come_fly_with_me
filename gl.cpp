@@ -30,34 +30,12 @@
 #define PI 3.141592
 #define SCALE_FACTOR 0.0001
 
-//Development environment system information.
-#ifdef COMP3004
+#define SDL_main main
 
-  #define USING_SDL_VERSION 2
-  #define USING_OPENGL_VERSION 2
-  #define  USING_MAC 0
-  #define  USING_LINUX 1
-  #define  USING_WXP 0
-  #define  USING_W7 0
-  #define  USING_NVIDIA 0
-  #define  USING_ATI 1
-
-  //Using libjpeg8-dev from Synaptic Package Manager.
-  //Using glm3-0.1.3 from http://devernay.free.fr/hacks/glm/
-  //Install jpeg before configuring and making glm.
-
-  #include <COMP3004.HPP>
-
-#else
-
-  #include <SDL.h>
-  #include <GL/GLew.h>
-  #include <SDL_opengl.h>
-
-#endif
-
+#include "SDL.h"
+#include "SDL_opengl.h"
+#include "glm.h"
 #include <math.h>
-#include <glm.h>
 
 //*****************************************
 //           Global Variables
@@ -257,7 +235,7 @@ void drawObject(GLMmodel* model, bool texture) {
         nextTexture = 1;
         diffuseEnabled = materialPointer->map_diffuse;
       }
-        
+
       //Start accepting triangles in state machine.
       glmTriangles();
 
@@ -297,7 +275,7 @@ void drawObject(GLMmodel* model, bool texture) {
             glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, materialPointer->specular);
             glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, materialPointer->shininess);
             }
-    
+
           //Calculate the vertex normals, OpenGL uses them for lighting calculations.
           for (int j = 0; j < 3; j++) {
             if (triangle->nindices[j]!=-1) glmNormal(&model->normals[3 * triangle->nindices[j]]);
@@ -310,10 +288,10 @@ void drawObject(GLMmodel* model, bool texture) {
             //Add the points to be drawn.
             glmVertex(&model->vertices[3 * triangle->vindices[j]]);
           }
-        }    
+        }
       }
       glmPurge();
-        
+
       //Next material group.
       group = group->next;
     }
@@ -350,7 +328,7 @@ void updateCamera() {
   cameraX += momentum * -sin(cameraR * PI / 180);
   cameraY += elevationDirection * CAMERA_ELEVATION * SCALE_FACTOR / FPS;
   cameraZ += momentum * cos(cameraR * PI / 180);
-  
+
   //Move the world, not the camera.
   rotateY(cameraR);
   translate(cameraX, cameraY, cameraZ);
@@ -485,7 +463,7 @@ void drawCloudPlane() {
   float yOffset = -cameraY / SCALE_FACTOR;
   int zOffset = -cameraZ / SCALE_FACTOR;
   translate(xOffset, yOffset, zOffset);
-  
+
   //Bind data pointers.
   glBindTexture(GL_TEXTURE_2D, cloudTexture);
   glVertexPointer(3, GL_FLOAT, 0, cloudPlaneV);
@@ -497,7 +475,7 @@ void drawCloudPlane() {
   for (int i = 0; i < CLOUDS * CLOUDS * 7; i++)
     glDrawArrays(GL_POLYGON, i * CLOUD_SECTIONS, CLOUD_SECTIONS);
   glPopMatrix();
-  
+
   //2nd plane.
   glPushMatrix();
   translate(0, CLOUD_INNER_PLANES, 0);
@@ -518,7 +496,7 @@ void drawCloudPlane() {
   for (int i = 0; i < CLOUDS * CLOUDS * 7; i++)
     glDrawArrays(GL_POLYGON, i * CLOUD_SECTIONS, CLOUD_SECTIONS);
   glPopMatrix();
-  
+
   glEnable(GL_LIGHTING);
   glDisableClientState(GL_TEXTURE_COORD_ARRAY);
   glPopMatrix();
@@ -538,7 +516,7 @@ void setupLights() {
   GLfloat global_ambient[] = {0.5, 0.5, 0.5, 1};
   glLightModelfv(GL_LIGHT_MODEL_AMBIENT, global_ambient);
 
-  //Set up a light source at the sun's location.  
+  //Set up a light source at the sun's location.
   glEnable(GL_LIGHT0);
   GLfloat light0_ambient[] = {0, 0, 0, 1};
   GLfloat light0_diffuse[] = {0.5, 0.5, 0.5, 1};
@@ -635,7 +613,7 @@ void drawScene() {
   //Make sure angles are in bounds.
   bounds(planeRotX); bounds(planeRotY); bounds(planeRotZ);
   bounds(eagleRotX); bounds(eagleRotY); bounds(eagleRotZ);
-  
+
   if (!paused) {
     //Airplane transformation events.
     //Constant swaying.
@@ -668,7 +646,7 @@ void drawScene() {
       planePriorY -= 0.01 * PI * sin(ticks * 2 * PI / 180);
       planePriorZ -= 0.02 * PI * sin(ticks * PI / 180);
     }
-  
+
     //Eagle transformation events.
     //Set default position.
     eaglePriorX = -1;
@@ -699,7 +677,7 @@ void drawScene() {
       eagleRotZ -= cos((ticks + 45) * 2 * PI / 180);
       eaglePostY -= 0.02 * cos((ticks + 45) * 4 * PI / 180);
     }
-      
+
     //Avoid plane collision.
     if (ticks >= 180 && ticks < 270) eagleRotZ += 0.5 * PI * sin(ticks * 4 * PI / 180);
 
@@ -716,7 +694,7 @@ void drawScene() {
     if (ticks >= 700 && ticks < 710) eaglePriorY += 0.01;
     if (ticks >= 710 && ticks < 720) eaglePriorY -= 0.01;
   }
-  
+
   //Apply the transformations then draw the airplane.
   glPushMatrix();
   translate(planePriorX, planePriorY, planePriorZ);
@@ -756,11 +734,6 @@ void init() {
   if (SDL_SetVideoMode(512, 512, 32, SDL_OPENGL) == 0) exit(1); //FIND
   SDL_WM_SetCaption("cp22g08 Coursework 3", "cp22g08 Coursework 3");
 
-  //Initialise glew on the test machine.
-  #ifdef COMP3004
-      glewInit();
-  #endif
-
   //Set up camera.
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
@@ -772,7 +745,7 @@ void init() {
 
   //Use z-buffer, lighting, normal scaling.
   glEnable(GL_DEPTH_TEST);
-  
+
   //Set up two lights; the sun and its reflection.
   setupLights();
 
@@ -873,7 +846,7 @@ void events() {
 
             //Set frame.
             frame = 605;
-              
+
             //Move the camera.
             cameraX = 0.004524;
             cameraY = 0.000052;
@@ -897,7 +870,7 @@ void events() {
 
             //Set frame.
             frame = 224;
-              
+
             //Move the camera.
             cameraX = 0.001829;
             cameraY = -0.000004;
@@ -921,7 +894,7 @@ void events() {
 
             //Set frame.
             frame = -1;
-              
+
             //Move the camera.
             cameraX = 0.000094;
             cameraY = -0.000036;
