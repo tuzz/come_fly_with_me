@@ -11,13 +11,13 @@
 #define CAMERA_MOMENTUM 0.1
 
 //Cloud plane configuration constants.
-#define CLOUDS 16
-#define CLOUD_SECTIONS 16
+#define CLOUDS 12
+#define CLOUD_SECTIONS 3
 #define CLOUD_INNER_PLANES 0.2
 #define CLOUD_OUTER_PLANES 0.8
 
 //Frame rate, lowering the frame rate may improve performance on older computers.
-#define FPS 25
+#define FPS 60
 
 //Other global constants.
 #define PI 3.141592
@@ -228,19 +228,19 @@ void calculateCloudPlane() {
   for (int i = 0; i < 7; i++) {
     switch (i) {
       //Scale everything down quite a bit, we only want a light covering.
-      case 0: xScale = 0.125; zScale = 0.125; xTrans = 0; zTrans = 0;
+      case 0: xScale = 0.0625; zScale = 0.0625; xTrans = 0; zTrans = 0;
       break;
-      case 1: xScale = 0.0625; zScale = 0.0625; xTrans = 0.125; zTrans = 0;
+      case 1: xScale = 0.0625; zScale = 0.0625; xTrans = 0.0625; zTrans = 0;
       break;
-      case 2: xScale = 0.0625; zScale = 0.0625; xTrans = -0.125; zTrans = 0;
+      case 2: xScale = 0.0625; zScale = 0.0625; xTrans = -0.0625; zTrans = 0;
       break;
-      case 3: xScale = 0.0625; zScale = 0.0625; xTrans = 0.125 * cos(60 * PI / 180); zTrans = 0.125 * sin(60 * PI / 180);
+      case 3: xScale = 0.0625; zScale = 0.0625; xTrans = 0.0625 * cos(60 * PI / 180); zTrans = 0.0625 * sin(60 * PI / 180);
       break;
-      case 4: xScale = 0.0625; zScale = 0.0625; xTrans = 0.125 * cos(120 * PI / 180); zTrans = 0.125 * sin(120 * PI / 180);
+      case 4: xScale = 0.0625; zScale = 0.0625; xTrans = 0.0625 * cos(120 * PI / 180); zTrans = 0.0625 * sin(120 * PI / 180);
       break;
-      case 5: xScale = 0.0625; zScale = 0.0625; xTrans = 0.125 * cos(240 * PI / 180); zTrans = 0.125 * sin(240 * PI / 180);
+      case 5: xScale = 0.0625; zScale = 0.0625; xTrans = 0.0625 * cos(240 * PI / 180); zTrans = 0.0625 * sin(240 * PI / 180);
       break;
-      case 6: xScale = 0.0625; zScale = 0.0625; xTrans = 0.125 * cos(300 * PI / 180); zTrans = 0.125 * sin(300 * PI / 180);
+      case 6: xScale = 0.0625; zScale = 0.0625; xTrans = 0.0625 * cos(300 * PI / 180); zTrans = 0.0625 * sin(300 * PI / 180);
       break;
     }
     for (int j = 0; j < CLOUD_SECTIONS; j++) {
@@ -413,8 +413,8 @@ void drawScene() {
 
   //Set the animation control variables.
   if (!paused) frame++;
-  int ticks = frame % 720;
-  if (frame % 720 == 0) {
+  int ticks = frame % 1440;
+  if (frame % 1440 == 0) {
     ticks = 0;
 
     //Reset animation object positions and rotations.
@@ -438,34 +438,35 @@ void drawScene() {
   if (!paused) {
     //Airplane transformation events.
     //Constant swaying.
-    planeRotZ -= cos(ticks * 4 * PI / 180);
-    planePostY -= 0.02 * cos(ticks * 2 * PI / 180);
+    planeRotZ -= 0.5 * cos(ticks * 2 * PI / 180);
+    planePostY -= 0.01 * cos(ticks * PI / 180);
 
     //Spin upside-down.
-    if (ticks >= 90 && ticks < 180) planeRotZ -= PI * sin(ticks * 2 * PI / 180);
+    if (ticks >= 180 && ticks < 360) planeRotZ -= PI * 0.5 * sin(ticks * PI / 180);
 
     //Spin back round.
-    if (ticks >= 180 && ticks < 270) planeRotZ += PI * sin(ticks * 2 * PI / 180);
+    if (ticks >= 360 && ticks < 540) planeRotZ += PI * 0.5 * sin(ticks * PI / 180);
 
     //Dive.
-    if (ticks >= 360 && ticks < 450) {
-      planeRotX -= 0.5 * PI * sin(ticks * 4 * PI / 180);
-      planePriorY -= 0.01 * PI * sin(ticks * 2 * PI / 180);
-      planePriorZ -= 0.02 * PI * sin(ticks * PI / 180);
+    if (ticks >= 720 && ticks < 900) {
+      planeRotX -= 0.25 * PI * sin(ticks * 2 * PI / 180);
+      planePriorY -= 0.005 * PI * sin(ticks * PI / 180);
+      planePriorZ -= 0.01 * PI * sin(ticks * 0.5 * PI / 180);
     }
 
     //Loop-the-loop
-    if (ticks >= 450 && ticks < 630) {
-      planeRotX += 2;
-      planePriorY += 0.03 * PI * sin((ticks - 90) * 2 * PI / 180);
-      planePriorZ -= 0.03 * PI * cos((ticks - 90) * 2 * PI / 180);
+    if (ticks >= 900 && ticks < 1220) {
+      planeRotX += 1;
+      planePriorY += 0.015 * PI * sin((ticks - 180) * PI / 180);
+      planePriorZ -= 0.015 * PI * cos((ticks - 180) * PI / 180);
     }
 
     //Reset position.
-    if (ticks >= 630 && ticks < 720) {
-      planeRotX -= 0.25 * PI * sin(ticks * 4 * PI / 180);
-      planePriorY -= 0.01 * PI * sin(ticks * 2 * PI / 180);
-      planePriorZ -= 0.02 * PI * sin(ticks * PI / 180);
+    if (ticks >= 1220 && ticks < 1440) {
+      // These values were found by minimising errors using binary division.
+      planeRotX -= 0.1262345 * PI * sin(ticks * PI / 180);
+      planePriorY -= 0.002379563 * PI * sin(ticks * 0.5 * PI / 180);
+      planePriorZ -= 0.003826425 * PI * sin(ticks * 0.5 * PI / 180);
     }
 
     //Eagle transformation events.
@@ -474,46 +475,46 @@ void drawScene() {
     eaglePriorZ = 0.4;
 
     //Set start position over left wing.
-    if (ticks >= 0 && ticks < 90) {
+    if (ticks >= 0 && ticks < 180) {
       eaglePriorX = -0.5;
       eaglePriorY = 0.03;
       eaglePriorZ = -0.1;
     }
 
     //Move a little with the wing.
-    if (ticks >= 0 && ticks < 45) {
-      eagleRotZ -= cos(ticks * 4 * PI / 180);
-      eaglePostY -= 0.018 * sin(ticks * 4 * PI / 180);
+    if (ticks >= 0 && ticks < 90) {
+      eagleRotZ -= cos(ticks * 2 * PI / 180);
+      eaglePostY -= 0.009 * sin(ticks * 2 * PI / 180);
     }
 
     //Move back, up and left.
-    if (ticks >= 45 && ticks < 90) {
-      eaglePriorX -= (float)0.5 / 45 * (ticks - 45);
-      eaglePriorZ += (float)0.5 / 45 * (ticks - 45);
-      eaglePostY += 0.018 * sin((ticks - 45) * 4 * PI / 180);
+    if (ticks >= 90 && ticks < 180) {
+      eaglePriorX -= (float)0.5 / 90 * (ticks - 90);
+      eaglePriorZ += (float)0.5 / 90 * (ticks - 90);
+      eaglePostY += 0.009 * sin((ticks - 90) * 2 * PI / 180);
     }
 
     //Swaying.
-    if (ticks >= 45 && ticks < 675) {
-      eagleRotZ -= cos((ticks + 45) * 2 * PI / 180);
-      eaglePostY -= 0.02 * cos((ticks + 45) * 4 * PI / 180);
+    if (ticks >= 90 && ticks < 1350) {
+      eagleRotZ -= 0.6 * cos((ticks + 90) * PI / 180);
+      eaglePostY -= 0.01 * cos((ticks + 90) * 2 * PI / 180);
     }
 
     //Avoid plane collision.
-    if (ticks >= 180 && ticks < 270) eagleRotZ += 0.5 * PI * sin(ticks * 4 * PI / 180);
+    if (ticks >= 360 && ticks < 540) eagleRotZ += 0.25 * PI * sin(ticks * 2 * PI / 180);
 
     //Glide from side to side.
-    if (ticks >= 360 && ticks < 540) eaglePriorX += 0.4 * PI * sin(ticks * PI / 180);
+    if (ticks >= 720 && ticks < 1080) eaglePriorX += 0.4 * PI * sin(ticks * 0.5 * PI / 180);
 
     //Move back to start position.
-    if (ticks >= 675 && ticks < 720) {
-      eaglePriorX += (float)0.5 / 45 * (ticks - 675);
-      eaglePriorZ -= (float)0.5 / 45 * (ticks - 675);
+    if (ticks >= 1350 && ticks < 1440) {
+      eaglePriorX += (float)0.5 / 90 * (ticks - 1350);
+      eaglePriorZ -= (float)0.5 / 90 * (ticks - 1350);
     }
 
     //Avoid plane collision.
-    if (ticks >= 700 && ticks < 710) eaglePriorY += 0.01;
-    if (ticks >= 710 && ticks < 720) eaglePriorY -= 0.01;
+    if (ticks >= 1400 && ticks < 1420) eaglePriorY += 0.01;
+    if (ticks >= 1420 && ticks < 1440) eaglePriorY -= 0.01;
   }
 
   //Apply the transformations then draw the airplane.
