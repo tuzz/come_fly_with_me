@@ -89,6 +89,9 @@ GLfloat texture[4][2] =
    {0.0, 1.0}};// 3: left,  top
 
 //Animation variables.
+bool fullscreen = 0;
+float window_w, window_h;
+bool forceReshape = false;
 int frame = -1;
 bool paused = false;
 float momentum = CAMERA_START_MOMENTUM * SCALE_FACTOR;
@@ -557,8 +560,8 @@ void init(int argc, char **argv) {
   gluPerspective(90, 1, 0.00001, 1 / SCALE_FACTOR);
   glMatrixMode(GL_MODELVIEW);
 
-  //Set the clear color, just in case - sky blue.
-  glClearColor(0.6, 0.8, 1, 1);
+  //Set the clear color.
+  glClearColor(0, 0, 0, 1);
 
   //Use z-buffer, lighting, normal scaling.
   glEnable(GL_DEPTH_TEST);
@@ -576,6 +579,11 @@ void init(int argc, char **argv) {
 
   //Calculate cloud plane.
   calculateCloudPlane();
+}
+
+void reshape(int width, int height) {
+  int min = (width > height) ? height : width;
+  glViewport((width - min) / 2, (height - min) / 2, min, min);
 }
 
 //Main display loop.
@@ -603,6 +611,13 @@ void timer(int n) {
   if (DEBUG) {
     printf("%s\n", gluErrorString(glGetError()));
     fflush(stdout);
+  }
+
+  if (forceReshape) {
+    float w = glutGet(GLUT_WINDOW_WIDTH);
+    float h = glutGet(GLUT_WINDOW_HEIGHT);
+
+    reshape(w, h);
   }
 
   glutPostRedisplay();
@@ -737,7 +752,23 @@ void keyDown(unsigned char key, int x, int y) {
     break;
 
     case 'h':
-      printf("\n\n*** Camera Controls ***\nW: Accelerate\nS: Decelerate\nA: Turn left\nD: Turn right\n=: Increase elevation\n-: Decrease elevation\n0: Stop moving\n\n*** Other Controls ***\nSpace: Pause animation - you may still move the camera.\nH: Display help\nP: Set position 1\nU: Set position 2\nY: Set position 3\nR: Reset\nQ: Quit\n\n");
+      printf("\n\n*** Controls ***\n\nW: Accelerate\nS: Decelerate\nA: Turn left\nD: Turn right\n=: Increase elevation\n-: Decrease elevation\n0: Stop moving\nSpace: Pause animation\n\nF: Fullscreen\nP: Set viewpoint A\nU: Set viewpoint B\nY: Set viewpoint C\n\nH: Help\nR: Reset\nQ: Quit");
+    break;
+
+    case 'f':
+      if (fullscreen) {
+        glutReshapeWindow(window_w, window_h);
+        fullscreen = false;
+      }
+      else {
+        window_w = glutGet(GLUT_WINDOW_WIDTH);
+        window_h = glutGet(GLUT_WINDOW_HEIGHT);
+
+        glutFullScreen();
+        fullscreen = true;
+      }
+
+      forceReshape = true;
     break;
   }
 }
@@ -761,7 +792,7 @@ int main(int argc, char **argv) {
   glutSetKeyRepeat(0);
   glutKeyboardFunc(keyDown);
   glutKeyboardUpFunc(keyUp);
-  //glutReshapeFunc(reshape);
+  glutReshapeFunc(reshape);
   glutMainLoop();
 
   return 0;

@@ -41,12 +41,12 @@ D: Turn right
 =: Increase elevation
 -: Decrease elevation
 0: Stop moving
+Space: Pause animation
 
+F: Fullscreen
 P: Set viewpoint A
 U: Set viewpoint B
 Y: Set viewpoint C
-
-Space: Pause motion
 
 H: Help
 R: Reset
