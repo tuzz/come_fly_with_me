@@ -552,7 +552,7 @@ void init(int argc, char **argv) {
   glutInitWindowSize(800, 800);
 
   //Create window.
-  glutCreateWindow("Graphical Animation");
+  glutCreateWindow("Come Fly With Me - by Chris Patuzzo");
 
   //Set up camera.
   glMatrixMode(GL_PROJECTION);
