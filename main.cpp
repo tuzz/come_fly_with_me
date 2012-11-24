@@ -11,8 +11,8 @@
 #define CAMERA_MOMENTUM 0.1
 
 //Cloud plane configuration constants.
-#define CLOUDS 8
-#define CLOUD_SECTIONS 3
+#define CLOUDS 16
+#define CLOUD_SECTIONS 16
 #define CLOUD_INNER_PLANES 0.2
 #define CLOUD_OUTER_PLANES 0.8
 
@@ -549,7 +549,7 @@ void init(int argc, char **argv) {
 
   // Use doule buffering.
   glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-  glutInitWindowSize(800, 800);
+  glutInitWindowSize(760, 760);
 
   //Create window.
   glutCreateWindow("Come Fly With Me - by Chris Patuzzo");
