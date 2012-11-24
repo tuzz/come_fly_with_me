@@ -1,0 +1,10 @@
+*.out
+Makefile
+config.*
+*.o
+*.lo
+*.la
+.deps/
+.libs/
+libtool
+stamp-h1

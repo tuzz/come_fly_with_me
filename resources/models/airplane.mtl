@@ -1,9 +1,9 @@
-# 
+#
 # Wavefront material file
 # Converted by the DEEP Exploration  2.1.10.1214
 # Right Hemisphere, LTD
 # http://www.righthemisphere.com/
-# 
+#
 
 newmtl fuselL
 Ka 1 1 1
@@ -11,7 +11,7 @@ Kd 1 1 1
 Ks 1 1 1
 illum 2
 Ns 11.3137
-map_Kd include/Cripefus.jpg
+map_Kd ../textures/airplane/cripefus.jpeg
 
 newmtl VMtl02
 Ka 0 0 0
@@ -48,7 +48,7 @@ Kd 1 1 1
 Ks 1 1 1
 illum 2
 Ns 2.14355
-map_Kd include/cripeelv.jpg
+map_Kd ../textures/airplane/cripeelv.jpeg
 
 newmtl VMtl07
 Ka 0 0 0
@@ -56,7 +56,7 @@ Kd 1 1 1
 Ks 1 1 1
 illum 2
 Ns 2.14355
-map_Kd include/criperud.jpg
+map_Kd ../textures/airplane/criperud.jpeg
 
 newmtl VMtl08
 Ka 0 0 0
@@ -71,7 +71,7 @@ Kd 1 1 1
 Ks 1 1 1
 illum 2
 Ns 2.14355
-map_Kd include/Cripefus.jpg
+map_Kd ../textures/airplane/cripefus.jpeg
 
 newmtl VMtl10
 Ka 0 0 0
@@ -79,7 +79,7 @@ Kd 1 1 1
 Ks 1 1 1
 illum 2
 Ns 2.14355
-map_Kd include/cripewng.jpg
+map_Kd ../textures/airplane/cripewng.jpeg
 
 newmtl VMtl11
 Ka 0 0 0
@@ -101,7 +101,7 @@ Kd 1 1 1
 Ks 1 1 1
 illum 2
 Ns 2.14355
-map_Kd include/cripetai.jpg
+map_Kd ../textures/airplane/cripetai.jpeg
 
 newmtl VMtl14
 Ka 0 0 0
@@ -109,7 +109,7 @@ Kd 1 1 1
 Ks 1 1 1
 illum 2
 Ns 2.14355
-map_Kd include/cripetai.jpg
+map_Kd ../textures/airplane/cripetai.jpeg
 
 newmtl VMtl15
 Ka 0 0 0
