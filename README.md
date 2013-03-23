@@ -1,6 +1,6 @@
 ## Come Fly With Me
 
-![Screenshot](https://github.com/cpatuzzo/come_fly_with_me/blob/master/screen.jpeg?raw=true)
+![Screenshot](https://raw.github.com/tuzz/come_fly_with_me/master/screen.jpeg)
 
 ## Setup
 
