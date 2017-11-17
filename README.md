@@ -52,9 +52,3 @@ H: Help
 R: Reset
 Q: Quit
 ```
-
-## Contribution
-
-Feel free to contribute. No commit is too small.
-
-You should follow me: [@cpatuzzo](https://twitter.com/cpatuzzo)
